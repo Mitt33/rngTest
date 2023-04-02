@@ -6,35 +6,30 @@ from nistrng import *
 import secrets
 import time
 
+generators_list = ["Mersenne Twister",
+              "Secrets",
+              "Linear Congruential",
+              "Xorshift",
+              "LFSR - bad",
+              "OS generator",
+              "test",
+              ]
 
-def generators_setup():
-    generators = {'1': 'python numpy default PRNG - Mersenne Twister',
-                  '2': 'Secrets - secure',
-                  '3': 'Linear Congruential',
-                  '4': 'Xorshift',
-                  '5': "Linear Feedback Shift Register - bad on purpose",
-                  '6': "OS generator",
-                  '7': "test",
-                  }
-    print('Generators available: ')
-    for key, value in generators.items():
-        print(f'{key}. {value}')
 
-    choice = input("Choose a generator: ")
-    n_bits = int(input("Enter number of bits to generate: "))
-    if choice == '1':
+def generators_setup(selected_generator, n_bits):
+    if selected_generator == "Mersenne Twister":
         generator = MersenneTwister(n_bits)
-    elif choice == '2':
+    elif selected_generator == "Secrets":
         generator = GenerateSecrets(n_bits)
-    elif choice == '3':
+    elif selected_generator == "Linear Congruential":
         generator = LinearCongruentialGenerator(n_bits)
-    elif choice == '4':
+    elif selected_generator == "Xorshift":
         generator = Xorshift(n_bits)
-    elif choice == '5':
+    elif selected_generator == "LFSR - bad":
         generator = LinearFeedbackShiftRegister(n_bits)
-    elif choice == '6':
+    elif selected_generator == "OS generator":
         generator = SystemGen(n_bits)
-    elif choice == '7':
+    elif selected_generator == "test":
         generator = TestGen(n_bits)
     else:
         print('Choice of generator not valid')
@@ -173,6 +168,7 @@ class LinearFeedbackShiftRegister(BitGenerator):
         self.bits: np.ndarray = np.array(bits, dtype=np.uint8).astype(np.int8)
         return self.bits
 
+
 class SystemGen(BitGenerator):
     """
     https://download.microsoft.com/download/1/c/9/1c9813b8-089c-4fef-b2ad-ad80e79403ba/Whitepaper%20-%20The%20Windows%2010%20random%20number%20generation%20infrastructure.pdf
@@ -187,6 +183,7 @@ class SystemGen(BitGenerator):
         print(random_bytes)
         print(self.bits)
         return self.bits
+
 
 class TestGen(BitGenerator):
 

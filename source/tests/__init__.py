@@ -1,5 +1,4 @@
 from .test_graphical import GraphicalTest
-from .test_birthday_spacings import BirthdaySpacingsTest
 from .test_poker import PokerTest
 from .test_chi_square import ChiSquareTest
 from .test_kolmogorov_smirnov import KolmogorovSmirnovTest

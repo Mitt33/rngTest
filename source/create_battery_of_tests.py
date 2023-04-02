@@ -1,12 +1,12 @@
 import nistrng
 
-from source.tests import GraphicalTest, BirthdaySpacingsTest, PokerTest, ChiSquareTest, KolmogorovSmirnovTest, \
+from source.tests import GraphicalTest, PokerTest, ChiSquareTest, KolmogorovSmirnovTest, \
     TwoBitTest, LempelZivCompressionTest, HammingWeightTest, AutocorrelationTest, GapTest, TurningPointTest, DummyTest
 
 
 def create_all_battery():
     all_test_battery: dict = {
-        "Graphical": GraphicalTest(),
+        "Graphical Test": GraphicalTest(),
         "Poker test": PokerTest(),
         "Two bit test": TwoBitTest(),
         "Gap Test": GapTest(),
@@ -18,7 +18,6 @@ def create_all_battery():
 
         # "Chi Square": ChiSquareTest(),                                                      # = monobit test
         # "Kolmogorov smirnov": KolmogorovSmirnovTest(),                                      # = spojité hodnoty
-        # "Birthday Spacings": BirthdaySpacingsTest(),                                        #--
         # "dummy test": DummyTest(),
 
     }

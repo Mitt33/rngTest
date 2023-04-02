@@ -10,11 +10,13 @@ from source import create_battery_of_tests
 def test_prep(binary_sequence):
     all_test_dict = create_battery_of_tests.create_all_battery()
     eligible_battery = create_eligible_battery(binary_sequence, all_test_dict)
-    print_eligible_battery(eligible_battery, all_test_dict)
+    # print_eligible_battery(eligible_battery, all_test_dict)
 
-    results = test_data(binary_sequence, eligible_battery)
-    print_results(results)
-    save_results(results)
+    # results = test_data(binary_sequence, eligible_battery)
+    # print_results(results)
+    # save_results(results)
+
+    return all_test_dict, eligible_battery
 
 
 def create_eligible_battery(binary_sequence: np.ndarray, all_battery):
@@ -24,12 +26,12 @@ def create_eligible_battery(binary_sequence: np.ndarray, all_battery):
     return eligible_battery
 
 
-def print_eligible_battery(eligible_battery, all_battery):
-    # Print the eligible tests
-    print("number of eligible test out of ", len(all_battery), "are: ", len(eligible_battery))
-    print("Eligible testyy from NIST-SP800-22r1a:")
-    for name in eligible_battery.keys():
-        print("-" + name)
+# def print_eligible_battery(eligible_battery, all_battery):
+#     # Print the eligible tests
+#     print("number of eligible test out of ", len(all_battery), "are: ", len(eligible_battery))
+#     print("Eligible testyy from NIST-SP800-22r1a:")
+#     for name in eligible_battery.keys():
+#         print("-" + name)
 
 
 def test_data(binary_sequence: np.ndarray, eligible_battery):

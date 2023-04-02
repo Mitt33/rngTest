@@ -1309,3 +1309,57 @@ Approximate Entropy,0.0,failed,5156ms
 Cumulative Sums,0.0,failed,91ms
 Random Excursion,0.63,failed,291ms
 Random Excursion Variant,0.0,failed,1ms
+Graphical,0.084,failed,2681ms
+PokerTest,0.989,passed,3ms
+TwoBit,0.71,passed,3ms
+GapTest,0.785,passed,3ms
+TurningPointTest,0.396,passed,0ms
+AutocorrelationTest,0.004,failed,5ms
+HammingWeightTest,0.054,passed,1ms
+Monobit,0.85,passed,0ms
+Frequency Within Block,0.53,passed,1ms
+Runs,0.799,passed,0ms
+Longest Run Ones In A Block,0.394,passed,1ms
+Discrete Fourier Transform,1.0,passed,0ms
+Non Overlapping Template Matching,0.999,passed,3ms
+Serial,0.523,passed,45ms
+Approximate Entropy,0.768,passed,58ms
+Cumulative Sums,0.929,passed,1ms
+Random Excursion,0.116,failed,12ms
+Random Excursion Variant,0.393,passed,1ms
+Graphical,0.015,failed,182ms
+PokerTest,0.747,passed,13ms
+TwoBit,0.953,passed,20ms
+GapTest,0.029,passed,24ms
+TurningPointTest,0.014,passed,2ms
+AutocorrelationTest,0.583,passed,14ms
+HammingWeightTest,0.807,passed,5ms
+Monobit,0.76,passed,0ms
+Frequency Within Block,0.885,passed,1ms
+Runs,0.164,passed,3ms
+Longest Run Ones In A Block,0.314,passed,14ms
+Discrete Fourier Transform,0.189,passed,1ms
+Non Overlapping Template Matching,1.0,passed,35ms
+Serial,0.177,passed,426ms
+Approximate Entropy,0.243,passed,505ms
+Cumulative Sums,0.938,passed,12ms
+Random Excursion,0.008,failed,47ms
+Random Excursion Variant,0.336,failed,1ms
+Graphical,0.052,failed,115ms
+PokerTest,0.111,passed,12ms
+TwoBit,0.368,passed,16ms
+GapTest,0.236,passed,20ms
+TurningPointTest,0.123,passed,1ms
+AutocorrelationTest,0.53,passed,10ms
+HammingWeightTest,0.628,passed,5ms
+Monobit,0.968,passed,0ms
+Frequency Within Block,0.92,passed,0ms
+Runs,0.025,passed,2ms
+Longest Run Ones In A Block,0.913,passed,12ms
+Discrete Fourier Transform,0.044,passed,1ms
+Non Overlapping Template Matching,1.0,passed,30ms
+Serial,0.423,passed,401ms
+Approximate Entropy,0.074,passed,487ms
+Cumulative Sums,0.925,passed,14ms
+Random Excursion,0.003,failed,63ms
+Random Excursion Variant,0.268,failed,0ms
