@@ -14,7 +14,7 @@ class GapTest(Test):
 
     def __init__(self):
         # Generate base Test class
-        super(GapTest, self).__init__("GapTest", 0.01)
+        super(GapTest, self).__init__("Gap Test", 0.01)
 
     def _execute(self,
                  bits: numpy.ndarray):

@@ -1,4 +1,5 @@
 import os
+import random
 import sys
 
 import numpy as np
@@ -6,29 +7,26 @@ from nistrng import *
 import secrets
 import time
 
-generators_list = ["Mersenne Twister",
-              "Secrets",
-              "Linear Congruential",
-              "Xorshift",
-              "LFSR - bad",
-              "OS generator",
-              "test",
-              ]
+generators_list = ["Python random",
+                   "Python secrets",
+                   "LCG",
+                   "Xorshift",
+                   "LFSR - bad",
+                   "test",
+                   ]
 
 
 def generators_setup(selected_generator, n_bits):
-    if selected_generator == "Mersenne Twister":
-        generator = MersenneTwister(n_bits)
-    elif selected_generator == "Secrets":
-        generator = GenerateSecrets(n_bits)
-    elif selected_generator == "Linear Congruential":
+    if selected_generator == "Python random":
+        generator = PythonRandom(n_bits)
+    elif selected_generator == "Python secrets":
+        generator = PythonSecrets(n_bits)
+    elif selected_generator == "LCG":
         generator = LinearCongruentialGenerator(n_bits)
     elif selected_generator == "Xorshift":
         generator = Xorshift(n_bits)
     elif selected_generator == "LFSR - bad":
         generator = LinearFeedbackShiftRegister(n_bits)
-    elif selected_generator == "OS generator":
-        generator = SystemGen(n_bits)
     elif selected_generator == "test":
         generator = TestGen(n_bits)
     else:
@@ -60,7 +58,7 @@ class BitGenerator:
         return filename_bin
 
 
-class MersenneTwister(BitGenerator):
+class PythonRandom(BitGenerator):
     """Classic random generator in Python - based on mersenne twister
 
     https://numpy.org/doc/stable/reference/random/index.html
@@ -68,14 +66,13 @@ class MersenneTwister(BitGenerator):
     """
 
     def generate_bits(self):
-        sequence = np.random.randint(2, size=(self.bit_length,), dtype=np.int8)
-        self.bits: np.ndarray = sequence
-        # bytes_sequence: np.ndarray = np.random.randint(-128, 127, byte_length, dtype=np.int8)
-        # self.bits: np.ndarray = pack_sequence(bytes_sequence)[:self.bit_length]
+        # sequence = np.random.randint(2, size=(self.bit_length,), dtype=np.int8)
+        sequence = [random.randint(0, 1) for _ in range(self.bit_length)]
+        self.bits: np.ndarray = np.array(sequence, dtype=np.int8)
         return self.bits
 
 
-class GenerateSecrets(BitGenerator):
+class PythonSecrets(BitGenerator):
 
     def generate_bits(self):
         """
@@ -98,8 +95,7 @@ class LinearCongruentialGenerator(BitGenerator):
         """
         linear congruential generator with parameters:
         -multiplier a, incement c, modulus m
-            BSD formula: 1103515245, 12345, 2 ** 31
-            Microsoft: 214013, 2531011, m**31
+        - glibc formula
         """
         a = 1103515245
         c = 12345
@@ -143,46 +139,37 @@ class LinearFeedbackShiftRegister(BitGenerator):
 
     def generate_bits(self):
         """
-        bad on purpose lfsr generator with period 2^4-1 = 15 bits
+        period = 2^n-1 = 15,
+        polynomial = x^4 + x^3 + 1
+        seed value : 8 bits from current time
         """
+        current_time = int(time.time())
+        state = current_time & 0b1111
         bits = []
-        state = 0b0101
-        # Initialize the LFSR with the seed value
+        # state = 0b01010101
         for _ in range(self.bit_length):
-            newbit = (state ^ (state >> 1)) & 1
+            newbit = (state ^ (state >> 3) ^ (state >> 4)) & 1
             state = (state >> 1) | (newbit << 3)
             bits.append(state & 0b1)
-
-        # start_state = 1 << 15 | 1
-        # lfsr = start_state
-        # period = 0
-        # while True:
-        #     # taps: 16 15 13 4; feedback polynomial: x^16 + x^15 + x^13 + x^4 + 1
-        #     bit = (lfsr ^ (lfsr >> 1) ^ (lfsr >> 3) ^ (lfsr >> 12)) & 1
-        #     lfsr = (lfsr >> 1) | (bit << 15)
-        #     period += 1
-        #     if (lfsr == start_state):
-        #         print(period)
-        #         break
 
         self.bits: np.ndarray = np.array(bits, dtype=np.uint8).astype(np.int8)
         return self.bits
 
 
-class SystemGen(BitGenerator):
-    """
-    https://download.microsoft.com/download/1/c/9/1c9813b8-089c-4fef-b2ad-ad80e79403ba/Whitepaper%20-%20The%20Windows%2010%20random%20number%20generation%20infrastructure.pdf
-    https://docs.python.org/3/library/os.html#os.urandom
-
-    """
-
-    def generate_bits(self):
-        random_bytes = os.urandom((self.bit_length + 7) // 8)
-        random_int8 = np.frombuffer(random_bytes, dtype=np.int8)
-        self.bits: np.ndarray = pack_sequence(random_int8)[:self.bit_length]
-        print(random_bytes)
-        print(self.bits)
-        return self.bits
+# class SystemGen(BitGenerator):
+#     """
+#     https://download.microsoft.com/download/1/c/9/1c9813b8-089c-4fef-b2ad-ad80e79403ba/Whitepaper%20-%20The%20Windows%2010%20random%20number%20generation%20infrastructure.pdf
+#     https://docs.python.org/3/library/os.html#os.urandom
+#
+#     """
+#
+#     def generate_bits(self):
+#         random_bytes = os.urandom((self.bit_length + 7) // 8)
+#         random_int8 = np.frombuffer(random_bytes, dtype=np.int8)
+#         self.bits: np.ndarray = pack_sequence(random_int8)[:self.bit_length]
+#         print(random_bytes)
+#         print(self.bits)
+#         return self.bits
 
 
 class TestGen(BitGenerator):

@@ -10,16 +10,12 @@ from scipy.stats import chisquare, norm
 class AutocorrelationTest(Test):
     """
     The significance value of the test is 0.01.
-    https://www.economic-debates.ro/art.20165roxana_dragomir.pdf
-    divne: https://www.geeksforgeeks.org/autocorrelation/
-    https://is.muni.cz/el/sci/jaro2013/M6444/um/38997543/prednaska2.pdf
-
     jen jeden lag - více - velká false pozitivita, početní náročnost
     """
 
     def __init__(self):
         # Generate base Test class
-        super(AutocorrelationTest, self).__init__("AutocorrelationTest", 0.01)
+        super(AutocorrelationTest, self).__init__("Autocorrelation Test", 0.01)
 
     def _execute(self,
                  bits: np.ndarray):

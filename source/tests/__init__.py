@@ -8,7 +8,6 @@ from .test_autocorrelation import AutocorrelationTest
 from .test_hamming_weight import HammingWeightTest
 from .test_gap import GapTest
 from .test_turning_point import TurningPointTest
-from .dummy_test import DummyTest
 
 
 """

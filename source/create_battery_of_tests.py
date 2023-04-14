@@ -1,12 +1,18 @@
 import nistrng
 
 from source.tests import GraphicalTest, PokerTest, ChiSquareTest, KolmogorovSmirnovTest, \
-    TwoBitTest, LempelZivCompressionTest, HammingWeightTest, AutocorrelationTest, GapTest, TurningPointTest, DummyTest
+    TwoBitTest, LempelZivCompressionTest, HammingWeightTest, AutocorrelationTest, GapTest, TurningPointTest
+from nistrng.sp800_22r1a import *
+
+tooltip_dict = {
+    "Poker test": "this is a tooltip for poker test, formated with html?",
+    "Two bit test": "this is a tooltip for two bit test, how does he works i wonder?",
+}
 
 
 def create_all_battery():
     all_test_battery: dict = {
-        "Graphical Test": GraphicalTest(),
+        # "Graphical Test": GraphicalTest(),
         "Poker test": PokerTest(),
         "Two bit test": TwoBitTest(),
         "Gap Test": GapTest(),
@@ -14,15 +20,29 @@ def create_all_battery():
         "Autocorrelation Test": AutocorrelationTest(),
         "Hamming weight test": HammingWeightTest(),
         "Lempel ziv compression test": LempelZivCompressionTest(),
-
-
-        # "Chi Square": ChiSquareTest(),                                                      # = monobit test
-        # "Kolmogorov smirnov": KolmogorovSmirnovTest(),                                      # = spojité hodnoty
         # "dummy test": DummyTest(),
+    }
 
+    SP800_22R1A_BATTERY_changed: dict = {
+        "Monobit": MonobitTest(),
+        "Frequency Within Block": FrequencyWithinBlockTest(),
+        "Runs": RunsTest(),
+        "Longest Run Ones In A Block": LongestRunOnesInABlockTest(),
+        "Binary Matrix Rank": BinaryMatrixRankTest(),
+        "Discrete Fourier Transform": DiscreteFourierTransformTest(),
+        "Non Overlapping Template Matching": NonOverlappingTemplateMatchingTest(),
+        "Overlapping Template Matching": OverlappingTemplateMatchingTest(),
+        "Maurers Universal": MaurersUniversalTest(),
+        "Linear Complexity": LinearComplexityTest(),
+        "Serial": SerialTest(),
+        "Approximate Entropy": ApproximateEntropyTest(),
+        "Cumulative Sums": CumulativeSumsTest(),
+        "Random Excursion": RandomExcursionTest(),
+        "Random Excursion Variant": RandomExcursionVariantTest()
     }
     # nistrng.SP800_22R1A_BATTERY.pop("dft")  # this is how to delete test from battery, so it can be replaced
-    all_test_battery.update(nistrng.SP800_22R1A_BATTERY)
+    # all_test_battery.update(nistrng.SP800_22R1A_BATTERY)
+    all_test_battery.update(SP800_22R1A_BATTERY_changed)
 
     return all_test_battery
 

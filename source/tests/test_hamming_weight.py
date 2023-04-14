@@ -18,7 +18,7 @@ class HammingWeightTest(Test):
 
     def __init__(self):
         # Generate base Test class
-        super(HammingWeightTest, self).__init__("HammingWeightTest", 0.01)
+        super(HammingWeightTest, self).__init__("Hamming Weight Test", 0.01)
 
     def _execute(self,
                  bits: np.ndarray):

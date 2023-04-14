@@ -9,17 +9,11 @@ from scipy.stats import kstest
 
 class KolmogorovSmirnovTest(Test):
     """
-    Monobit test as described in NIST paper: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-22r1a.pdf
-    The focus of the test is the proportion of zeroes and ones for the entire sequence. The purpose of this test is to determine
-    whether the number of ones and zeros in a sequence are approximately the same as would be expected for a truly random sequence.
-    The test assesses the closeness of the fraction of ones to 1/2, that is, the number of ones and zeroes in a sequence
-    should be about the same.
-
     The significance value of the test is 0.01.
     """
     def __init__(self):
         # Generate base Test class
-        super(KolmogorovSmirnovTest, self).__init__("KolmogorovSmirnovTest", 0.01)
+        super(KolmogorovSmirnovTest, self).__init__("Kolmogorov-Smirnov Test", 0.01)
 
     def _execute(self,
                  bits: numpy.ndarray):

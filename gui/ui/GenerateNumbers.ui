@@ -13,19 +13,50 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QSpinBox" name="spinBox">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>300</x>
      <y>110</y>
      <width>231</width>
      <height>61</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="font">
     <font>
      <pointsize>16</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSpinBox {
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+    border: 2px solid rgb(184, 184, 184);
+    padding: 6px;
+}
+
+QSpinBox::up-button {
+    width: 30px;
+    height: 30px;
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+}
+
+QSpinBox::down-button {
+    width: 30px;
+    height: 30px;
+    subcontrol-origin: padding;
+    subcontrol-position: bottom right;
+}</string>
    </property>
    <property name="maximum">
     <number>1000000000</number>
@@ -40,8 +71,8 @@
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>200</y>
+     <x>300</x>
+     <y>190</y>
      <width>231</width>
      <height>61</height>
     </rect>
@@ -51,38 +82,78 @@
      <pointsize>16</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QComboBox {
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+    border: 2px solid rgb(184, 184, 184);
+    padding: 6px;
+}
+
+QComboBox::drop-down 
+{
+	width: 30px;
+}
+</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="back_btn">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>460</y>
+     <x>70</x>
+     <y>470</y>
      <width>111</width>
      <height>61</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+    border: 2px solid rgb(184, 184, 184);
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);
+    border: 2px solid rgb(154, 154, 154);
+}</string>
+   </property>
    <property name="text">
-    <string>back</string>
+    <string>Back</string>
    </property>
   </widget>
   <widget class="QPushButton" name="next_btn">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>450</y>
+     <x>610</x>
+     <y>470</y>
      <width>111</width>
      <height>61</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>14</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+    border: 2px solid rgb(184, 184, 184);
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);
+    border: 2px solid rgb(154, 154, 154);
+}</string>
    </property>
    <property name="text">
     <string>Generate</string>
@@ -91,15 +162,15 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>100</x>
      <y>120</y>
-     <width>131</width>
+     <width>181</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>16</pointsize>
     </font>
    </property>
    <property name="text">
@@ -109,15 +180,15 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>200</y>
-     <width>151</width>
+     <x>100</x>
+     <y>190</y>
+     <width>181</width>
      <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>16</pointsize>
     </font>
    </property>
    <property name="text">

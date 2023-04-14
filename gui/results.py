@@ -4,6 +4,7 @@ from numpy import round
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QWidget, QComboBox, QSpinBox, QLabel, QTableWidget, \
     QTableWidgetItem, QHeaderView
 from PyQt5.uic import loadUi
+from source.tests.graphical_test import graphical_test
 
 from source.test_data import test_data, print_results
 
@@ -19,6 +20,9 @@ class Results(QWidget):
 
         self.exit_btn = self.findChild(QPushButton, "exit_btn")
         self.exit_btn.clicked.connect(exit)
+
+        self.graphical_btn = self.findChild(QPushButton, "graphical_btn")
+        self.graphical_btn.clicked.connect(self.graphical_test)
 
         self.table = self.findChild(QTableWidget, "tableWidget")
 
@@ -37,3 +41,8 @@ class Results(QWidget):
 
     def exit(self):
         sys.exit()
+
+    def graphical_test(self):
+        graphical_test(self.binary_sequence)
+
+

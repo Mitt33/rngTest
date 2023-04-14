@@ -14,7 +14,7 @@ class GraphicalTest(Test):
 
     def __init__(self):
         # Generate base Test class
-        super(GraphicalTest, self).__init__("Graphical", 0.01)
+        super(GraphicalTest, self).__init__("Graphical test", 0.01)
 
     def _execute(self,
                  bits: np.ndarray):

@@ -15,7 +15,7 @@ class PokerTest(Test):
 
     def __init__(self):
         # Generate base Test class
-        super(PokerTest, self).__init__("PokerTest", 0.01)
+        super(PokerTest, self).__init__("Poker Test", 0.01)
 
     def _execute(self,
                  bits: np.ndarray):

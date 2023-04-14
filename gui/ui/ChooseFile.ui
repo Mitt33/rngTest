@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QLabel" name="filepath_label">
    <property name="geometry">
     <rect>
@@ -45,6 +48,19 @@
      <pointsize>14</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+    border: 2px solid rgb(184, 184, 184);
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);
+    border: 2px solid rgb(154, 154, 154);
+}</string>
+   </property>
    <property name="text">
     <string>Choose file</string>
    </property>
@@ -60,17 +76,30 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+    border: 2px solid rgb(184, 184, 184);
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);
+    border: 2px solid rgb(154, 154, 154);
+}</string>
+   </property>
    <property name="text">
-    <string>back</string>
+    <string>Back</string>
    </property>
   </widget>
   <widget class="QPushButton" name="next_btn">
    <property name="geometry">
     <rect>
-     <x>610</x>
+     <x>600</x>
      <y>470</y>
      <width>111</width>
      <height>61</height>
@@ -78,11 +107,24 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+    border: 2px solid rgb(184, 184, 184);
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);
+    border: 2px solid rgb(154, 154, 154);
+}</string>
+   </property>
    <property name="text">
-    <string>next</string>
+    <string>Next</string>
    </property>
   </widget>
  </widget>

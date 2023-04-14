@@ -19,7 +19,7 @@ class LempelZivCompressionTest(Test):
     def __init__(self):
         # Generate base Test class
         self._sequence_size_min: int = 1000000
-        super(LempelZivCompressionTest, self).__init__("LempelZivCompressionTest", 0.01)
+        super(LempelZivCompressionTest, self).__init__("Lempel-Ziv Compression Test", 0.01)
 
     def _execute(self,
                  bits: np.ndarray):
@@ -45,7 +45,7 @@ class LempelZivCompressionTest(Test):
 
         dict_len = len(unique_subseqs)
         mu = 69586.25
-        sigma = math.sqrt(70.48718)
+        sigma = math.sqrt(70.448718)
         score = (1 / 2) * math.erfc((mu - dict_len)/(math.sqrt(2 * (sigma ** 2))))
 
         if score >= self.significance_value:

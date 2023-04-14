@@ -12,7 +12,7 @@ class TwoBitTest(Test):
 
     def __init__(self):
         # Generate base Test class
-        super(TwoBitTest, self).__init__("TwoBit", 0.01)
+        super(TwoBitTest, self).__init__("Two Bit Test", 0.01)
 
     def _execute(self,
                  bits: np.ndarray):

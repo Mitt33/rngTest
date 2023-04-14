@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QPushButton, QWidget, QComboBox, QSpinBox
+from PyQt5.QtWidgets import QMainWindow, QPushButton, QWidget, QComboBox, QSpinBox, QMessageBox
 from PyQt5.uic import loadUi
 
 from gui.eligible_tests import EligibleTests
@@ -37,14 +37,22 @@ class GenerateNumbers(QWidget):
         self.widget.setCurrentWidget(self.main_window)
 
     def go_to_eligible(self):
-        selected_generator = self.combo_box.currentText()
-        num_bits = self.spin_box.value()
+        try:
+            selected_generator = self.combo_box.currentText()
+            num_bits = self.spin_box.value()
 
-        print(num_bits)
-        print(selected_generator)
-        self.file_path = generators.generators_setup(selected_generator, num_bits)
-        print(self.file_path)
+            print(num_bits)
+            print(selected_generator)
+            self.file_path = generators.generators_setup(selected_generator, num_bits)
+            print(self.file_path)
 
-        screen_eligible = EligibleTests(self.file_path, self.widget, self.main_window)
-        self.widget.addWidget(screen_eligible)
-        self.widget.setCurrentWidget(screen_eligible)
+            screen_eligible = EligibleTests(self.file_path, self.widget, self.main_window)
+            self.widget.addWidget(screen_eligible)
+            self.widget.setCurrentWidget(screen_eligible)
+        except Exception as e:
+            # Create a message box to show the error information
+            error_box = QMessageBox()
+            error_box.setIcon(QMessageBox.Critical)
+            error_box.setText("An error with generating numbers occurred: " + str(e))
+            error_box.setWindowTitle("Error")
+            error_box.exec_()

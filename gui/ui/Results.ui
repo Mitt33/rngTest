@@ -28,17 +28,35 @@
     </font>
    </property>
    <property name="text">
-    <string>Here are the results:</string>
+    <string>Results of tests:</string>
    </property>
   </widget>
   <widget class="QPushButton" name="exit_btn">
    <property name="geometry">
     <rect>
-     <x>614</x>
-     <y>522</y>
-     <width>131</width>
+     <x>680</x>
+     <y>530</y>
+     <width>101</width>
      <height>51</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+    border: 2px solid rgb(184, 184, 184);
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);
+    border: 2px solid rgb(154, 154, 154);
+}</string>
    </property>
    <property name="text">
     <string>Exit</string>
@@ -104,6 +122,68 @@
      </column>
     </widget>
    </widget>
+  </widget>
+  <widget class="QPushButton" name="graphical_btn">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>520</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+    border: 2px solid rgb(184, 184, 184);
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);
+    border: 2px solid rgb(154, 154, 154);
+}</string>
+   </property>
+   <property name="text">
+    <string>Graphical Test</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="export_btn">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>530</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+    border: 2px solid rgb(184, 184, 184);
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);
+    border: 2px solid rgb(154, 154, 154);
+}</string>
+   </property>
+   <property name="text">
+    <string>Export</string>
+   </property>
   </widget>
  </widget>
  <resources/>

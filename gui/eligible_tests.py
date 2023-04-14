@@ -3,6 +3,7 @@ from PyQt5.uic import loadUi
 
 from gui.results import Results
 from source import test_data, file_reader
+from source.create_battery_of_tests import tooltip_dict
 
 
 class EligibleTests(QWidget):
@@ -30,7 +31,10 @@ class EligibleTests(QWidget):
         self.all_test_dict, self.eligible_battery = test_data.test_prep(self.binary_sequence)
 
         self.head_label.setText(str(len(self.eligible_battery)) + " out of " + str(len(self.all_test_dict)) +
-                                " tests eligible: ")
+                                " tests eligible - (for sequence of " + str(len(self.binary_sequence)) + " inserted "
+                                                                                                         "bits):")
+        self.head_label.adjustSize()
+
 
         num_cols = 3
         row = 0
@@ -47,7 +51,10 @@ class EligibleTests(QWidget):
             checkbox = QCheckBox(test_name)
             checkbox.setChecked(eligible)
             checkbox.setDisabled(disabled)
-            # checkbox.stateChanged.connect(self.test)
+
+            tooltip_text = tooltip_dict.get(test_name)
+            if tooltip_text:
+                checkbox.setToolTip(tooltip_text)
 
             self.checkboxes[test_name] = checkbox
 

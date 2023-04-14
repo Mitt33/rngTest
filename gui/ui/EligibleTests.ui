@@ -16,11 +16,29 @@
   <widget class="QPushButton" name="home_btn">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>510</y>
+     <x>40</x>
+     <y>520</y>
      <width>111</width>
      <height>61</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+    border: 2px solid rgb(184, 184, 184);
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);
+    border: 2px solid rgb(154, 154, 154);
+}</string>
    </property>
    <property name="text">
     <string>Home</string>
@@ -29,21 +47,39 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>610</x>
-     <y>510</y>
+     <x>630</x>
+     <y>520</y>
      <width>121</width>
      <height>61</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: rgb(224, 224, 224);
+    border-radius: 5px;
+    border: 2px solid rgb(184, 184, 184);
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);
+    border: 2px solid rgb(154, 154, 154);
+}</string>
+   </property>
    <property name="text">
-    <string>TEST</string>
+    <string>Test</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>0</y>
+     <x>20</x>
+     <y>10</y>
      <width>211</width>
      <height>51</height>
     </rect>

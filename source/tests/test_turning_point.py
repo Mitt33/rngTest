@@ -14,7 +14,7 @@ class TurningPointTest(Test):
 
     def __init__(self):
         # Generate base Test class
-        super(TurningPointTest, self).__init__("TurningPointTest", 0.01)
+        super(TurningPointTest, self).__init__("Turning Point Test", 0.01)
 
     def _execute(self,
                  bits: np.ndarray):
