@@ -4,11 +4,6 @@ from scipy.stats import chisquare
 
 
 class TwoBitTest(Test):
-    """
-    The significance value of the test is 0.01.
-    another test as a poker or serial test
-    knuth 5 chapter: https://cacr.uwaterloo.ca/hac/about/chap5.pdf
-    """
 
     def __init__(self):
         # Generate base Test class
@@ -57,8 +52,4 @@ class TwoBitTest(Test):
 
     def is_eligible(self,
                     bits: np.ndarray) -> bool:
-        """
-        Overridden method of Test class: check its docstring for further information.
-        """
-        # for continous generated_data: transformation?
         return True

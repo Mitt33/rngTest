@@ -1,10 +1,7 @@
 import numpy
-import math
-
-# Import required src
 import numpy as np
-from nistrng import Test, Result, unpack_sequence
-from scipy.stats import chisquare, chi2
+from nistrng import Test, Result
+from scipy.stats import chisquare
 
 
 class GapTest(Test):
@@ -62,8 +59,4 @@ class GapTest(Test):
 
     def is_eligible(self,
                     bits: numpy.ndarray) -> bool:
-        """
-        Overridden method of Test class: check its docstring for further information.
-        """
-        # for continous generated_data: transformation?
         return True

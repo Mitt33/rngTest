@@ -4,14 +4,6 @@ from scipy.stats import chisquare
 
 
 class PokerTest(Test):
-    """
-    The significance value of the test is 0.01.
-    Poker test with hands of three: hands of 4 is another posiblle way, maybe add?
-    degrees of freedom - 4 categories (types of block) = degrees is 3?
-        degrees_of_freedom = 2**3 - 1 - spíš to za mě řeší samo
-    https://www.iosrjournals.org/iosr-jm/papers/Vol12-issue1/Version-5/D012151723.pdf
-    https://thescipub.com/pdf/jcssp.2012.1353.1357.pdf
-    """
 
     def __init__(self):
         # Generate base Test class

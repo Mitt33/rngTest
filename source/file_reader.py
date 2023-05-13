@@ -1,7 +1,5 @@
 import re
-
 import numpy as np
-from nistrng import pack_sequence
 
 
 def file_read_prep(file_path):

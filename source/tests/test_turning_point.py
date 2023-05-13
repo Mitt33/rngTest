@@ -5,12 +5,6 @@ from scipy.stats import chisquare, norm
 
 
 class TurningPointTest(Test):
-    """
-    The significance value of the test is 0.01.
-    test bodů zvratu
-    https://katedry.pf.jcu.cz/kma/wp-content/uploads/2020/10/crek-prednaska_12.pdf
-    https://is.muni.cz/el/1431/jaro2015/M6444/um/38997543/prednaska2.pdf
-    """
 
     def __init__(self):
         # Generate base Test class
@@ -21,16 +15,6 @@ class TurningPointTest(Test):
         """
         Overridden method of Test class: check its docstring for further information.
         """
-
-        # num_turning_points = np.sum(bits[1:] != bits[:-1])
-        # # Step 3: Calculate the expected number of turning points
-        # n = len(bits)
-        # mean = 2 * (n - 1) / 3
-        # variance = np.sqrt(16 * n / 90)
-        # # Step 4: Calculate the test statistic and p-value
-        # z = (num_turning_points - mean) / variance
-        # p = 2 * (1 - norm.cdf(abs(z)))
-        # score = p
 
         ints = nistrng.functions.unpack_sequence(bits)
         turn_points = 0

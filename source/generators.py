@@ -1,7 +1,4 @@
-import os
 import random
-import sys
-
 import numpy as np
 from nistrng import *
 import secrets
@@ -11,8 +8,7 @@ generators_list = ["Python random",
                    "Python secrets",
                    "LCG",
                    "Xorshift",
-                   "LFSR - bad",
-                   "test",
+                   "LFSR - bad RNG!",
                    ]
 
 
@@ -25,10 +21,8 @@ def generators_setup(selected_generator, n_bits):
         generator = LinearCongruentialGenerator(n_bits)
     elif selected_generator == "Xorshift":
         generator = Xorshift(n_bits)
-    elif selected_generator == "LFSR - bad":
+    elif selected_generator == "LFSR - bad!":
         generator = LinearFeedbackShiftRegister(n_bits)
-    elif selected_generator == "test":
-        generator = TestGen(n_bits)
     else:
         print('Choice of generator not valid')
         exit()
@@ -50,19 +44,11 @@ class BitGenerator:
         filename_bin = f"generated_data/{type(self).__name__}_{self.bit_length}_bits.bin"
         with open(filename_bin, "wb") as f:
             f.write(self.bits)
-
-        # filename = f"generated_data/{type(self).__name__}_{self.bit_length}_bits.txt"
-        # with open(filename, "w") as f:
-        #     for bit in self.bits:
-        #         f.write(str(bit) + "\n")
         return filename_bin
 
 
 class PythonRandom(BitGenerator):
     """Classic random generator in Python - based on mersenne twister
-
-    https://numpy.org/doc/stable/reference/random/index.html
-    https://github.com/bashtage/randomgen
     """
 
     def generate_bits(self):
@@ -80,7 +66,6 @@ class PythonSecrets(BitGenerator):
         (function generates bytes, convert them to  int8 and then to bits and stores them
         in binary file)
         secrets module is based on os.urandom(), which is in win based on CryptGenRanom (sha-1?)
-
         https://docs.python.org/3/library/secrets.html
         """
         random_bytes = secrets.token_bytes((self.bit_length + 7) // 8)
@@ -113,7 +98,6 @@ class LinearCongruentialGenerator(BitGenerator):
 
 class Xorshift(BitGenerator):
     """
-
     """
 
     def generate_bits(self):
@@ -146,7 +130,6 @@ class LinearFeedbackShiftRegister(BitGenerator):
         current_time = int(time.time())
         state = current_time & 0b1111
         bits = []
-        # state = 0b01010101
         for _ in range(self.bit_length):
             newbit = (state ^ (state >> 3) ^ (state >> 4)) & 1
             state = (state >> 1) | (newbit << 3)
@@ -155,43 +138,3 @@ class LinearFeedbackShiftRegister(BitGenerator):
         self.bits: np.ndarray = np.array(bits, dtype=np.uint8).astype(np.int8)
         return self.bits
 
-
-# class SystemGen(BitGenerator):
-#     """
-#     https://download.microsoft.com/download/1/c/9/1c9813b8-089c-4fef-b2ad-ad80e79403ba/Whitepaper%20-%20The%20Windows%2010%20random%20number%20generation%20infrastructure.pdf
-#     https://docs.python.org/3/library/os.html#os.urandom
-#
-#     """
-#
-#     def generate_bits(self):
-#         random_bytes = os.urandom((self.bit_length + 7) // 8)
-#         random_int8 = np.frombuffer(random_bytes, dtype=np.int8)
-#         self.bits: np.ndarray = pack_sequence(random_int8)[:self.bit_length]
-#         print(random_bytes)
-#         print(self.bits)
-#         return self.bits
-
-
-class TestGen(BitGenerator):
-
-    def generate_bits(self):
-        int_list = np.random.randint(low=0, high=2 ** 31, size=100, dtype=np.uint32)
-
-        # Save the list to a file
-        with open('generated_data/integers32.txt', 'w') as f:
-            for i in int_list:
-                f.write(str(i) + '\n')
-        sys.exit()
-
-
-"""
-randu: bad generator
-
-additive congruential method
-
-compare:
-https://realpython.com/python-random/
-
-
-
-"""

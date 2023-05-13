@@ -1,10 +1,5 @@
-from collections import defaultdict
-
-import numpy as np
-import scipy
 from nistrng import Test, Result
 from scipy.special import comb
-from scipy.stats import chisquare
 import numpy as np
 from collections import defaultdict
 from scipy.stats import chisquare
@@ -13,7 +8,6 @@ from scipy.stats import chisquare
 class HammingWeightTest(Test):
     """
     The significance value of the test is 0.01.
-    https://www.economic-debates.ro/art.20165roxana_dragomir.pdf
     """
 
     def __init__(self):
@@ -53,8 +47,4 @@ class HammingWeightTest(Test):
 
     def is_eligible(self,
                     bits: np.ndarray) -> bool:
-        """
-        Overridden method of Test class: check its docstring for further information.
-        """
-        # for continous generated_data: transformation?
         return True

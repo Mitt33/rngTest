@@ -1,7 +1,6 @@
-from PyQt5.QtCore import QSize
-from PyQt5.QtWidgets import QMainWindow, QPushButton, QMessageBox
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QMainWindow, QPushButton, QMessageBox, QApplication
 from PyQt5.uic import loadUi
-
 from gui.generate_numbers import GenerateNumbers
 from gui.choose_file import ChooseFile
 
@@ -17,6 +16,11 @@ class MainWindow(QMainWindow):
 
         self.choose_btn = self.findChild(QPushButton, "choose_btn")
         self.choose_btn.clicked.connect(self.go_to_choose_file)
+
+        # self.setWindowIcon(QPixmap('./gui/logos/dice.png'))
+        app_icon = QIcon('./gui/logos/dice.png')
+        QApplication.setWindowIcon(app_icon)
+        QApplication.setApplicationName("TestRNG")
 
     def go_to_generate(self):
         try:

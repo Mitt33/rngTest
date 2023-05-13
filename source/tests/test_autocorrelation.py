@@ -1,16 +1,12 @@
 import math
-
 import nistrng.functions
 import numpy as np
-import scipy
 from nistrng import Test, Result
-from scipy.stats import chisquare, norm
-
+from scipy.stats import norm
 
 class AutocorrelationTest(Test):
     """
     The significance value of the test is 0.01.
-    jen jeden lag - více - velká false pozitivita, početní náročnost
     """
 
     def __init__(self):
@@ -47,7 +43,4 @@ class AutocorrelationTest(Test):
 
     def is_eligible(self,
                     bits: np.ndarray) -> bool:
-        """
-        Overridden method of Test class: check its docstring for further information.
-        """
         return True

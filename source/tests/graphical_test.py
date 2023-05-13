@@ -1,6 +1,7 @@
 import math
 
 import numpy as np
+import pylab
 from matplotlib import pyplot as plt
 from matplotlib.patches import Arc
 from nistrng import unpack_sequence
@@ -8,22 +9,21 @@ from nistrng import unpack_sequence
 
 def graphical_test(bits: np.ndarray):
     """
-    Overridden method of Test class: check its docstring for further information.
+
     """
-    if len(bits) > 1000000:  ####test_decref_doesnt_leak() work!!!!!!!!
+    if len(bits) > 1000000:
         integers = np.packbits(bits)
         print(integers)
         normalized_numbers = (integers + 1) / (2 ** len(bits))
         print(normalized_numbers)
     else:
         unpacked = unpack_sequence(bits)
-        # converting to int8 loss some precision - more cases (int 32..)
         normalized_ints = (unpacked + 128) / 255.0
         normalized_numbers = normalized_ints[:len(normalized_ints) // 2 * 2]
-        # print(normalized_numbers)
-    # TODO: fix converting to values on interval (0,1)
 
     fig, ax = plt.subplots()
+    fig = pylab.gcf()
+    fig.canvas.manager.set_window_title('Graphical test')
     # arc function wit center in 0,0; diameter 2
     arc = Arc((0, 0), 2, 2, angle=0, theta1=0, theta2=90, edgecolor='r', linewidth=2)
     ax.add_patch(arc)
@@ -69,6 +69,3 @@ def graphical_test(bits: np.ndarray):
     plt.text(0.5, 1.1, text, ha='center')
     plt.text(0.5, 1.05, f"approximate value of pi: {pi_approx}", ha='center')
     plt.show()
-
-    true_value = math.pi
-    score = abs(true_value - pi_approx)

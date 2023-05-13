@@ -1,8 +1,8 @@
-from PyQt5.QtWidgets import QMainWindow, QPushButton, QWidget, QComboBox, QSpinBox, QMessageBox
+from PyQt5.QtWidgets import QPushButton, QWidget, QComboBox, QSpinBox, QMessageBox
 from PyQt5.uic import loadUi
-
+from PyQt5 import QtCore
 from gui.eligible_tests import EligibleTests
-
+from source.create_battery_of_tests import tooltip_gen_dict
 from source import generators
 
 
@@ -12,6 +12,7 @@ class GenerateNumbers(QWidget):
         loadUi("gui/ui/GenerateNumbers.ui", self)
         self.widget = widget
         self.main_window = main_window
+        self.tooltip_gen_dict = tooltip_gen_dict
 
         self.back_btn = self.findChild(QPushButton, "back_btn")
         self.back_btn.clicked.connect(self.go_to_main)
@@ -28,6 +29,9 @@ class GenerateNumbers(QWidget):
 
         for rng_name in self.generators:
             self.combo_box.addItem(rng_name)
+            tooltip = tooltip_gen_dict.get(rng_name, "")  # get the tooltip for this generator name
+            self.combo_box.setItemData(self.combo_box.count() - 1, tooltip, QtCore.Qt.ToolTipRole)
+
         self.file_path = ""
 
     def go_to_main(self):

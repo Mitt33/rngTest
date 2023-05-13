@@ -1,0 +1,7 @@
+matplotlib==3.6.2
+nistrng==1.2.3
+numpy==1.23.5
+openpyxl==3.1.2
+PyQt5==5.15.9
+PyQt5_sip==12.11.1
+scipy==1.10.1

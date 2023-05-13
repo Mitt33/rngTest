@@ -1,21 +1,9 @@
 import math
-
 import numpy as np
 from nistrng import Test, Result
-from scipy.stats import chisquare
 
 
 class LempelZivCompressionTest(Test):
-    """
-    The significance value of the test is 0.01.
-    another test as a poker or serial test
-
-    corrections: https://www.researchgate.net/publication/294756057_Revisions_to_the_Spectral_Test_and_the_Lempel-Ziv_Compression_Test_in_the_NIST_Statistical_Test_Suite
-    question:  https://crypto.stackexchange.com/questions/129/why-did-nist-remove-the-lempel-ziv-compression-test-from-the-statistical-test-su
-    nist 2002: https://csrc.nist.gov/publications/detail/sp/800-22/archive/2001-05-15
-    hard paper: file:///C:/Users/martin/Downloads/A_Randomness_Test_Based_on_T-Complexity.pdf
-    """
-
     def __init__(self):
         # Generate base Test class
         self._sequence_size_min: int = 1000000
@@ -54,10 +42,6 @@ class LempelZivCompressionTest(Test):
 
     def is_eligible(self,
                     bits: np.ndarray) -> bool:
-        """
-        Overridden method of Test class: check its docstring for further information.
-        """
-        # for continous generated_data: transformation?
         if bits.size < self._sequence_size_min:
             return False
         return True

@@ -1,6 +1,5 @@
-from PyQt5.QtWidgets import QMainWindow, QPushButton, QWidget, QVBoxLayout, QLabel, QCheckBox, QGridLayout
+from PyQt5.QtWidgets import QPushButton, QWidget, QLabel, QCheckBox, QGridLayout
 from PyQt5.uic import loadUi
-
 from gui.results import Results
 from source import test_data, file_reader
 from source.create_battery_of_tests import tooltip_dict
@@ -19,6 +18,12 @@ class EligibleTests(QWidget):
         self.test_btn = self.findChild(QPushButton, "pushButton")
         self.test_btn.clicked.connect(self.test)
 
+        self.back_btn = self.findChild(QPushButton, "btn_uncheck")
+        self.back_btn.clicked.connect(self.uncheck_all)
+
+        self.back_btn = self.findChild(QPushButton, "btn_check")
+        self.back_btn.clicked.connect(self.check_all)
+
         self.grid_layout = self.findChild(QGridLayout, "gridLayout")
 
         self.head_label = self.findChild(QLabel, "label")
@@ -30,11 +35,12 @@ class EligibleTests(QWidget):
 
         self.all_test_dict, self.eligible_battery = test_data.test_prep(self.binary_sequence)
 
-        self.head_label.setText(str(len(self.eligible_battery)) + " out of " + str(len(self.all_test_dict)) +
-                                " tests eligible - (for sequence of " + str(len(self.binary_sequence)) + " inserted "
-                                                                                                         "bits):")
+        self.head_label.setText(
+            "{} out of {} tests eligible (for sequence of {:,} inserted bits):".format(
+                len(self.eligible_battery),
+                len(self.all_test_dict),
+                len(self.binary_sequence)))
         self.head_label.adjustSize()
-
 
         num_cols = 3
         row = 0
@@ -66,7 +72,6 @@ class EligibleTests(QWidget):
                 column = 0
                 row += 1
 
-
     def go_to_main(self):
         # main_window = MainWindow(self.widget)
         # widget.removeWidget()
@@ -83,14 +88,16 @@ class EligibleTests(QWidget):
                 del self.eligible_battery[test_name]
 
         print("test function activated")
-        for name in self.eligible_battery.keys():
-            print("-" + name)
-
         screen_results = Results(self.widget, self.eligible_battery, self.main_window, self.binary_sequence)
         self.widget.addWidget(screen_results)
         self.widget.setCurrentWidget(screen_results)
 
-    def update_eligible_tests(self):
-        # Loop through the checkboxes and update the eligible_tests dictionary
-        pass
 
+    def check_all(self):
+        for test_name, checkbox in self.checkboxes.items():
+            if checkbox.isEnabled():  # check only eligible checkboxes
+                checkbox.setChecked(True)
+
+    def uncheck_all(self):
+        for checkbox in self.checkboxes.values():
+            checkbox.setChecked(False)
