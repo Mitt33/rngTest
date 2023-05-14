@@ -9,49 +9,49 @@ Bachelor thesis project - App to test and evaluate random number generators
 Clone the project
 
 ```bash
-  git clone https://github.com/Mitt33/rngTest.git
+git clone https://github.com/Mitt33/rngTest.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd rngTest
+cd rngTest
 ```
 
 Create vuirtual environment for the project
 
 ```bash
-  python -m venv venv
+python -m venv venv
 ```
 
 Activate virtual environment with command dependend on operating system
 
 - For Linux or MacOS:
 ```bash
-  source venv/bin/activate 
+source venv/bin/activate 
 ```
 
 - For Windows:
 ```bash
-  .\venv\Scripts\activate  
+.\venv\Scripts\activate  
 ```
 
 Install dependencies
 
 ```bash
-  python -m pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 Start the application
 
 ```bash
-  python app.py
+python app.py
 ```
 
 When finished using app deactivate virtual environment
 
 ```bash
-  deactivate
+deactivate
 ```
 
 
