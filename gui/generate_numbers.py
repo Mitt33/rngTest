@@ -44,11 +44,7 @@ class GenerateNumbers(QWidget):
         try:
             selected_generator = self.combo_box.currentText()
             num_bits = self.spin_box.value()
-
-            print(num_bits)
-            print(selected_generator)
             self.file_path = generators.generators_setup(selected_generator, num_bits)
-            print(self.file_path)
 
             screen_eligible = EligibleTests(self.file_path, self.widget, self.main_window)
             self.widget.addWidget(screen_eligible)

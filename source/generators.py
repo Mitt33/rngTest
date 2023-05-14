@@ -26,8 +26,7 @@ def generators_setup(selected_generator, n_bits):
     else:
         print('Choice of generator not valid')
         exit()
-    random_sequence = generator.generate_bits()
-    print("random_sequence generated", random_sequence)
+    generator.generate_bits()
     filename = generator.save_to_file()
     return filename
 

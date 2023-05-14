@@ -18,15 +18,43 @@ Go to the project directory
   cd rngTest
 ```
 
+Create vuirtual environment for the project
+
+```bash
+  python -m venv venv
+```
+
+Activate virtual environment with command dependend on operating system
+
+- For Linux or MacOS:
+```bash
+  source venv/bin/activate 
+```
+
+- For Windows:
+```bash
+  .\venv\Scripts\activate  
+```
+
 Install dependencies
 
 ```bash
-  pip install -r requirements.txt
+  python -m pip install -r requirements.txt
 ```
 
-Start the server
+Start the application
 
 ```bash
   python app.py
 ```
+
+When finished using app deactivate virtual environment
+
+```bash
+  deactivate
+```
+
+
+## License 
+Will be added
 

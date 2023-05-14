@@ -140,7 +140,7 @@ tooltip_dict = {
                                      "templates in overlapping windows of the sequence. Counts the number of"
                                      " occurrences and compares it with the expected number of occurrences in a "
                                      "truly random sequence.</p>"
-                                     "<p><strong>Eligibility:</strong> n &gt; 10^6 bits</p>"
+                                     "<p><strong>Eligibility:</strong> n &gt; 1 028 016 bits</p>"
                                      "<p><strong>Result:</strong> p-value &lt; 0,01 suggests that "
                                      "the sequence may not be truly random since the number of occurrences of the "
                                      "predefined overlapping templates in the sequence is significantly different "
@@ -221,7 +221,7 @@ tooltip_dict = {
                           " its rank. Compares the rank with the expected rank in a random"
                           " binary matrix of the same size.</p>"
                           "<p><strong>Eligibility:</strong> n > 38912 </p>"
-                          "<p><strong>Result:</strong> p-value < 0,01 suggest that "
+                          "<p><strong>Result:</strong> p-value &lt; 0,01 suggests that "
                           "the sequence may not be truly random since the rank of the binary matrix is significantly"
                           " different from the expected rank in a random binary matrix of the same size.</p>",
 }

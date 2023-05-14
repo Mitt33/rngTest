@@ -6,8 +6,6 @@ def file_read_prep(file_path):
     reader = FileReader(file_path)
     reader.read_file()
     binary_sequence: np.ndarray = reader.get_data()
-    print("Data inserted: ", binary_sequence)
-    print("File type: ", reader.get_file_type())
 
     return binary_sequence
 
@@ -55,7 +53,7 @@ class FileReader:
                 self.data: np.ndarray = bits
 
             else:
-                data = np.array(numbers_only, dtype=np.uint8)   # takhle se čísla oříznou na unit8 - konverze je pak ok
+                data = np.array(numbers_only, dtype=np.uint8)
                 # data = np.array(numbers_only)
                 bits = np.unpackbits(data.astype(np.uint8))
                 self.data: np.ndarray = bits

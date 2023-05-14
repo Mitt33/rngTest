@@ -30,8 +30,6 @@ class EligibleTests(QWidget):
 
         self.file_path = file_path  # store file path in class variable
         self.binary_sequence = file_reader.file_read_prep(self.file_path)
-        print(self.binary_sequence)
-        print(self.binary_sequence.size)
 
         self.all_test_dict, self.eligible_battery = test_data.test_prep(self.binary_sequence)
 
@@ -87,7 +85,6 @@ class EligibleTests(QWidget):
             elif test_name in self.eligible_battery:
                 del self.eligible_battery[test_name]
 
-        print("test function activated")
         screen_results = Results(self.widget, self.eligible_battery, self.main_window, self.binary_sequence)
         self.widget.addWidget(screen_results)
         self.widget.setCurrentWidget(screen_results)
