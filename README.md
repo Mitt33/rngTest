@@ -9,7 +9,7 @@ Bachelor thesis project - App to test and evaluate random number generators
 Clone the project
 
 ```bash
-  git clone https://github.com/Mitt33/rngTest/tree/gui
+  git clone   git clone https://github.com/Mitt33/rngTest.git
 ```
 
 Go to the project directory
