@@ -11,49 +11,49 @@ Prerequisities: installed **Python** (**pip** and **venv** should be part of thi
 Clone the project
 
 ```bash
-  git clone https://github.com/Mitt33/rngTest/tree/gui
+git clone https://github.com/Mitt33/rngTest.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd rngTest
+cd rngTest
 ```
 
 Create virtual environment for the project
 
 ```bash
-  python -m venv venv
+python -m venv venv
 ```
 
 Activate virtual environment with command dependent on operating system
 
 - For Linux or MacOS:
 ```bash
-  source venv/bin/activate 
+source venv/bin/activate 
 ```
 
 - For Windows:
 ```bash
-  .\venv\Scripts\activate  
+.\venv\Scripts\activate  
 ```
 
 Install dependencies
 
 ```bash
-  python -m pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 Start the application
 
 ```bash
-  python app.py
+python app.py
 ```
 
 When finished using app deactivate virtual environment
 
 ```bash
-  deactivate
+deactivate
 ```
 
 
