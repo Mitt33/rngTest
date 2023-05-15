@@ -198,7 +198,7 @@ tooltip_dict = {
                          "during a cumulative sum excursion of the sequence. Test compares the distribution of the"
                          " visited states with the expected distribution in truly random sequence.</p>"
                          "<p><strong>Eligibility:</strong> n &gt; 10^6 bits</p>"
-                         "<p><strong>Result:</strong> p-value &lt 0,01 suggests "
+                         "<p><strong>Result:</strong> p-value &lt; 0,01 suggests "
                          "that cumulative sums of random excursion are significantly different from expected value"
                         " in a random sequence. Test calculates 9 p-values, all must be less "
                                 "than 0,01 for success, their average is shown in the table of results.</p>",
@@ -210,7 +210,7 @@ tooltip_dict = {
                                 "Test is that the test is series of eighteen tests for states from -9 to 9 "
                                 "except state 0.</p>"
                                  "<p><strong>Eligibility:</strong> n &gt; 10^6</p>"
-                                 "<p><strong>Result:</strong> p-value &lt; 0.01 suggests"
+                                 "<p><strong>Result:</strong> p-value &lt; 0,01 suggests"
                                  " that the sequence may not be truly random since the distribution of visited"
                                  " states during the excursions is significantly different from the expected "
                                  "distribution in a random sequence. Test calculates 18 p-values, all must be less "

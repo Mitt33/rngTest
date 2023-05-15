@@ -6,6 +6,8 @@ Bachelor thesis project - App to test and evaluate random number generators
 
 ## Run Locally
 
+Prerequisities: installed **Python** (**pip** and **venv** should be part of this), **git** to clone project. 
+
 Clone the project
 
 ```bash
@@ -18,13 +20,13 @@ Go to the project directory
   cd rngTest
 ```
 
-Create vuirtual environment for the project
+Create virtual environment for the project
 
 ```bash
   python -m venv venv
 ```
 
-Activate virtual environment with command dependend on operating system
+Activate virtual environment with command dependent on operating system
 
 - For Linux or MacOS:
 ```bash
@@ -54,7 +56,4 @@ When finished using app deactivate virtual environment
   deactivate
 ```
 
-
-## License 
-Will be added
 
