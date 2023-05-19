@@ -47,7 +47,7 @@ class Results(QWidget):
         self.progress_dialog.setWindowTitle("Computing tests")
         self.progress_dialog.setLabelText("Computing tests...")
         self.progress_dialog.setCancelButtonText(None)
-        self.progress_dialog.setRange(0, 0)  # Indeterminate progress bar
+        self.progress_dialog.setRange(0, 0)
         self.progress_dialog.show()
 
     def show_table(self, results):
@@ -86,7 +86,6 @@ class Results(QWidget):
             msg.setIcon(QMessageBox.Warning)
             msg.exec_()
 
-
     def export(self):
         options = QFileDialog.Options()
         default_filename = 'test_results/results_export.xlsx'
@@ -115,7 +114,6 @@ class Results(QWidget):
                     info_box.exec_()
 
             except Exception as e:
-                # Create a message box to show the error information
                 error_box = QMessageBox()
                 error_box.setIcon(QMessageBox.Critical)
                 error_box.setText("An error with export occured: " + str(e))

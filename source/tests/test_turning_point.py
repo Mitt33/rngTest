@@ -13,7 +13,7 @@ class TurningPointTest(Test):
     def _execute(self,
                  bits: np.ndarray):
         """
-        Overridden method of Test class: check its docstring for further information.
+        Implementation of Turning Point Test.
         """
 
         ints = nistrng.functions.unpack_sequence(bits)

@@ -6,17 +6,8 @@ from nistrng import Test, Result
 
 class SerialTestMod(Test):
     """
-    Serial test as described in NIST paper: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-22r1a.pdf
-    The focus of this test is the frequency of all possible overlapping m-bit patterns across the entire sequence.
-    The purpose of this test is to determine whether the number of occurrences of the 2mm-bit overlapping patterns is
-    approximately the same as would be expected for a random sequence. Random sequences have uniformity; that is, every m-bit
-    pattern has the same chance of appearing as every other m-bit pattern.
-    Note that for m = 1, the Serial test is equivalent to the Monobit test.
-
-    The significance value of the test is 0.01.
-
-
-    THHIS IS JUST A MODIFICASATION OF NistRNG Serial test to avoid overflow!!!
+    This is just a modification of NistRNG Serial test to avoid overflow!
+    source for original implementation in NistRNG library: https://github.com/InsaneMonster/NistRng
     """
 
     def __init__(self):

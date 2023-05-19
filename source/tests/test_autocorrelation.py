@@ -4,10 +4,8 @@ import numpy as np
 from nistrng import Test, Result
 from scipy.stats import norm
 
+
 class AutocorrelationTest(Test):
-    """
-    The significance value of the test is 0.01.
-    """
 
     def __init__(self):
         # Generate base Test class
@@ -16,7 +14,7 @@ class AutocorrelationTest(Test):
     def _execute(self,
                  bits: np.ndarray):
         """
-        Overridden method of Test class: check its docstring for further information.
+        Implementation of Autocorrelation Test
         """
         data = nistrng.functions.unpack_sequence(bits)
         data_length = len(data)

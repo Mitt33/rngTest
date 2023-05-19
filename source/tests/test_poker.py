@@ -12,7 +12,7 @@ class PokerTest(Test):
     def _execute(self,
                  bits: np.ndarray):
         """
-        Overridden method of Test class: check its docstring for further information.
+        Implementation of Poker Test
         """
         remainder = len(bits) % 3
 
@@ -59,6 +59,5 @@ class PokerTest(Test):
         """
         Overridden method of Test class: check its docstring for further information.
         """
-        # for continous generated_data: transformation?
         return True
 

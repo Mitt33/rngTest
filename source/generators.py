@@ -47,26 +47,22 @@ class BitGenerator:
 
 
 class PythonRandom(BitGenerator):
-    """Classic random generator in Python - based on mersenne twister
+    """
+    Classic random generator in Python - based on mersenne twister
     """
 
     def generate_bits(self):
-        # sequence = np.random.randint(2, size=(self.bit_length,), dtype=np.int8)
         sequence = [random.randint(0, 1) for _ in range(self.bit_length)]
         self.bits: np.ndarray = np.array(sequence, dtype=np.int8)
         return self.bits
 
 
 class PythonSecrets(BitGenerator):
+    """
+    Function to generate random amount of bits with *secrets* module.
+    """
 
     def generate_bits(self):
-        """
-        function to generate random amount of bits with *secrets* module.
-        (function generates bytes, convert them to  int8 and then to bits and stores them
-        in binary file)
-        secrets module is based on os.urandom(), which is in win based on CryptGenRanom (sha-1?)
-        https://docs.python.org/3/library/secrets.html
-        """
         random_bytes = secrets.token_bytes((self.bit_length + 7) // 8)
         random_int8 = np.frombuffer(random_bytes, dtype=np.int8)
         self.bits: np.ndarray = pack_sequence(random_int8)[:self.bit_length]
@@ -74,13 +70,13 @@ class PythonSecrets(BitGenerator):
 
 
 class LinearCongruentialGenerator(BitGenerator):
+    """
+    - linear congruential generator with parameters:
+    - multiplier a, increment c, modulus m
+    - glibc formula
+    """
 
     def generate_bits(self):
-        """
-        linear congruential generator with parameters:
-        -multiplier a, incement c, modulus m
-        - glibc formula
-        """
         a = 1103515245
         c = 12345
         m = 2 ** 31
@@ -97,6 +93,7 @@ class LinearCongruentialGenerator(BitGenerator):
 
 class Xorshift(BitGenerator):
     """
+    Implementation of Xorshift RNG
     """
 
     def generate_bits(self):

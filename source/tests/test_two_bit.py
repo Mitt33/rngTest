@@ -12,7 +12,7 @@ class TwoBitTest(Test):
     def _execute(self,
                  bits: np.ndarray):
         """
-        Overridden method of Test class: check its docstring for further information.
+        Two Bit Test Implementation
         """
         remainder = len(bits) % 2
 

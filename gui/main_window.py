@@ -17,7 +17,6 @@ class MainWindow(QMainWindow):
         self.choose_btn = self.findChild(QPushButton, "choose_btn")
         self.choose_btn.clicked.connect(self.go_to_choose_file)
 
-        # self.setWindowIcon(QPixmap('./gui/logos/dice.png'))
         app_icon = QIcon('./gui/logos/dice.png')
         QApplication.setWindowIcon(app_icon)
         QApplication.setApplicationName("TestRNG")
@@ -29,7 +28,6 @@ class MainWindow(QMainWindow):
             self.widget.removeWidget(self)
             self.widget.setCurrentWidget(screen_generate)
         except Exception as e:
-            # Create a message box to show the error information
             error_box = QMessageBox()
             error_box.setIcon(QMessageBox.Critical)
             error_box.setText("An error occurred: " + str(e))
@@ -43,7 +41,6 @@ class MainWindow(QMainWindow):
             self.widget.removeWidget(self)
             self.widget.setCurrentWidget(screen_choose)
         except Exception as e:
-            # Create a message box to show the error information
             error_box = QMessageBox()
             error_box.setIcon(QMessageBox.Critical)
             error_box.setText("An error occurred: " + str(e))

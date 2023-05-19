@@ -9,7 +9,7 @@ from nistrng import unpack_sequence
 
 def graphical_test(bits: np.ndarray):
     """
-
+    Implementation of Graphical Test
     """
     if len(bits) > 1000000:
         integers = np.packbits(bits)

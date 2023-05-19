@@ -12,7 +12,7 @@ class LempelZivCompressionTest(Test):
     def _execute(self,
                  bits: np.ndarray):
         """
-        Overridden method of Test class: check its docstring for further information.
+        Implementation of Lempel-Ziv Compression Test
         """
 
         bits = bits[:1000000]

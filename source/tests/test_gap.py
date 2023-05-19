@@ -5,9 +5,6 @@ from scipy.stats import chisquare
 
 
 class GapTest(Test):
-    """
-    The significance value of the test is 0.01.
-    """
 
     def __init__(self):
         # Generate base Test class
@@ -16,7 +13,7 @@ class GapTest(Test):
     def _execute(self,
                  bits: numpy.ndarray):
         """
-        Overridden method of Test class: check its docstring for further information.
+        Implementation of Gap test
         """
         # Compute the lengths of the gaps between consecutive ones in the sequence
         gaps = []

@@ -1,7 +1,8 @@
 import sys
+import traceback
+
 from PyQt5.QtWidgets import QApplication, QStackedWidget
 from gui.main_window import MainWindow
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
@@ -13,6 +14,6 @@ if __name__ == "__main__":
 
     try:
         sys.exit(app.exec_())
-    except:
-        print("exit")
-
+    except Exception as e:
+        print(f"Exception occurred: {e}")
+        traceback.print_exc()

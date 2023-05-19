@@ -35,7 +35,6 @@ class GenerateNumbers(QWidget):
         self.file_path = ""
 
     def go_to_main(self):
-        # main_window = MainWindow(self.widget)
         self.widget.addWidget(self.main_window)
         self.widget.removeWidget(self)
         self.widget.setCurrentWidget(self.main_window)
@@ -50,7 +49,6 @@ class GenerateNumbers(QWidget):
             self.widget.addWidget(screen_eligible)
             self.widget.setCurrentWidget(screen_eligible)
         except Exception as e:
-            # Create a message box to show the error information
             error_box = QMessageBox()
             error_box.setIcon(QMessageBox.Critical)
             error_box.setText("An error with generating numbers occurred: " + str(e))

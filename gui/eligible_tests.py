@@ -71,8 +71,6 @@ class EligibleTests(QWidget):
                 row += 1
 
     def go_to_main(self):
-        # main_window = MainWindow(self.widget)
-        # widget.removeWidget()
         self.widget.addWidget(self.main_window)
         self.widget.setCurrentWidget(self.main_window)
 

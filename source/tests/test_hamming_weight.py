@@ -6,9 +6,6 @@ from scipy.stats import chisquare
 
 
 class HammingWeightTest(Test):
-    """
-    The significance value of the test is 0.01.
-    """
 
     def __init__(self):
         # Generate base Test class
@@ -17,7 +14,7 @@ class HammingWeightTest(Test):
     def _execute(self,
                  bits: np.ndarray):
         """
-        Overridden method of Test class: check its docstring for further information.
+        Implementation of Hamming Weight Test
         """
 
         subseqs = np.array_split(bits, len(bits) // 8)

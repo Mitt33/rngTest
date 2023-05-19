@@ -261,14 +261,7 @@ QPushButton:hover {
      </property>
      <addaction name="actionPurpose_of_the_app_is_to_test_random_numbers_It_is_possible_to_have_the_data_generated_or_insert_your_own_data_file_Up_to_23_randomness_statistical_tests_can_then_be_applied_and_the_results_displayed_exported"/>
     </widget>
-    <widget class="QMenu" name="menulicense">
-     <property name="title">
-      <string>license</string>
-     </property>
-     <addaction name="actionApp_is_created_by_Martin_Svoboda_NistRng_library_is_used_for_nist_sts_tests"/>
-    </widget>
     <addaction name="menuabout_app"/>
-    <addaction name="menulicense"/>
    </widget>
    <addaction name="menuInfo"/>
   </widget>

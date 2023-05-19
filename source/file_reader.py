@@ -29,7 +29,6 @@ class FileReader:
             numbers_only = []
             for item in re.findall(r'-?\d+(?:\.\d+)?', data):
                 numbers_only.append(item)
-            # list_splitted = re.split(",|\s|\n", data)
             float_lst = [float(item) for item in numbers_only]
             is_floats_zero_to_one = True
             for num in float_lst:
@@ -54,7 +53,6 @@ class FileReader:
 
             else:
                 data = np.array(numbers_only, dtype=np.uint8)
-                # data = np.array(numbers_only)
                 bits = np.unpackbits(data.astype(np.uint8))
                 self.data: np.ndarray = bits
 

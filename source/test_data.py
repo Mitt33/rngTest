@@ -24,8 +24,6 @@ def create_eligible_battery(binary_sequence: np.ndarray, all_battery):
 def test_data(binary_sequence: np.ndarray, eligible_battery: dict, check_eligibility: bool = True) -> []:
     num_processes = min(mp.cpu_count(), len(eligible_battery))  # determine the number of available processes
     pool = mp.Pool(processes=num_processes)  # create a process pool
-    # results = pool.starmap(run_by_name_battery, [(name, sequence, eligible_battery, check_eligibility) for name in
-    # eligible_battery.keys()])
     results = []
     for name in eligible_battery.keys():
         sequence = binary_sequence.copy()  # create a copy of the binary sequence for this test
@@ -34,7 +32,7 @@ def test_data(binary_sequence: np.ndarray, eligible_battery: dict, check_eligibi
 
     pool.close()  # close the process pool
     pool.join()  # wait for all processes to complete
-    # return results
+
     return [r.get() for r in results]
 
 
